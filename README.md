@@ -1,7 +1,7 @@
 #DBDocument
 
 * Version: 0.1
-* [Website](http://fuelphp.com/)
+* [Website]()
 * [Release Documentation]()
 
 ## Description
