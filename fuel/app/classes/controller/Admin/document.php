@@ -14,7 +14,7 @@ class Controller_Admin_Document extends Controller_Admin {
 	 */
 	public function action_index() {
 		$config = array(
-		    'pagination_url' => Uri::create('admin/document/index'),
+		    'pagination_url' => Uri::current(),
 		    'total_items'    => 10,
 		    'per_page'       => 2,
 		    'uri_segment'    => 3

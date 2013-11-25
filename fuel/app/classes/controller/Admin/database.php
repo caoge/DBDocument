@@ -19,16 +19,6 @@ class Controller_Admin_Database extends Controller_Admin {
 	}
 
 	/**
-	 * 数据库表字段列表
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
-	public function action_field_list() {
-
-	}
-
-	/**
 	 * 添加数据库
 	 *
 	 * @access  public
@@ -110,5 +100,15 @@ class Controller_Admin_Database extends Controller_Admin {
 		if ($entry != null) {
 			$entry->delete();
 		}
+	}
+
+	/**
+	 * 数据库表字段列表
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_field_list() {
+
 	}
 }
