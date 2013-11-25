@@ -10,10 +10,12 @@ class Controller_Admin_Database extends Controller_Admin {
 	 * 数据库栏目页
 	 *
 	 * @access  public
-	 * @return  Response
 	 */
 	public function action_index() {
 		$database_list = Model_Database::find('all');
+
+		$this->template->title = "数据库管理";
+        $this->template->content = View::forge('admin/database/index', array());
 		var_dump($database_list);
 		
 	}
@@ -22,7 +24,6 @@ class Controller_Admin_Database extends Controller_Admin {
 	 * 添加数据库
 	 *
 	 * @access  public
-	 * @return  Response
 	 */
 	public function action_add() {
 		$name = Input::post('name', '默认数据库');
@@ -60,7 +61,6 @@ class Controller_Admin_Database extends Controller_Admin {
 	 * 删除数据库
 	 *
 	 * @access  public
-	 * @return  Response
 	 */
 	public function action_delete($id) {
 		$entry = Model_Database::find($id);
