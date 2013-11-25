@@ -1,8 +1,7 @@
 #DBDocument
 
 * Version: 0.1
-* [Website]()
-* [Release Documentation]()
+* [版本日志]()
 
 ## 描述
 
@@ -18,4 +17,4 @@ For more detailed information, see the [development wiki]().
 
 ##开发维护
 
-* BlinkCao - Developer
+* caoge - Developer
