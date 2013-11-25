@@ -14,7 +14,7 @@ class Controller_Admin_Document extends Controller_Admin {
 	 */
 	public function action_index() {
 		$config = array(
-		    'pagination_url' => 'http://localhost/DBDocument/public/index.php/admin_document/index/',
+		    'pagination_url' => Uri::create('admin/document/index'),
 		    'total_items'    => 10,
 		    'per_page'       => 2,
 		    'uri_segment'    => 3
@@ -27,8 +27,8 @@ class Controller_Admin_Document extends Controller_Admin {
                             ->offset($pagination->offset)
                             ->execute()
                             ->as_array();
-		//$document_list = Model_Document::find('all');
-		var_dump($data);
+		$this->template->title = "文档列表";
+        $this->template->content = View::forge('admin/document/index', $data);
 	}
 
 	/**
