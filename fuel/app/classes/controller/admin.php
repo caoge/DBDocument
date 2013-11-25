@@ -16,7 +16,7 @@ class Controller_Admin extends Controller {
 	 * @return  Response
 	 */
 	public function action_404() {
-		echo 1;exit;
+		echo 404;exit;
 		return Response::forge(ViewModel::forge('welcome/404'), 404);
 	}
 }

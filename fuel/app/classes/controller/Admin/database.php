@@ -19,16 +19,6 @@ class Controller_Admin_Database extends Controller_Admin {
 	}
 
 	/**
-	 * 数据库表列表
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
-	public function action_table_list() {
-
-	}
-
-	/**
 	 * 数据库表字段列表
 	 *
 	 * @access  public
@@ -89,7 +79,36 @@ class Controller_Admin_Database extends Controller_Admin {
 		}
 	}
 
+	/**
+	 * 数据库表列表
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_table_list() {
+		var_dump(Format::forge(array('a', 'b', 'c'))->to_json());
+	}
+
+	/**
+	 * 编辑数据库表
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
 	public function action_table_edit() {
 
+	}
+
+	/**
+	 * 删除数据库表
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_table_delete($id) {
+		$entry = Model_Table::find($id);
+		if ($entry != null) {
+			$entry->delete();
+		}
 	}
 }
