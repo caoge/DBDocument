@@ -16,7 +16,7 @@
     <![endif]-->
   </head>
   <body>
-	<header class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,38 +24,45 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="<?php echo Uri::base(); ?>">数据库文档生成系统<?php echo Config::get('current_version'); ?></a>
+			  <a class="navbar-brand" href="<?php echo Uri::base(); ?>">数据库文档<?php echo Config::get('current_version'); ?></a>
 			</div>
 			
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active">
-						<a href="<?php echo Uri::create('admin/server'); ?>">服务器</a>
+						<a href="database.html">数据库</a>
 					</li>
 					<li>
-						<a href="<?php echo Uri::create('admin/document'); ?>">文档</a>
+						<a href="document.html">文档</a>
 					</li>
 					<li>
-						<a href="<?php echo Uri::create('admin/log'); ?>">日志</a>
+						<a href="log.html">日志</a>
 					</li>
 					<li>
-						<a href="<?php echo Uri::create('admin/setting'); ?>">设置</a>
+						<a href="setting.html">设置</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> admin <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href=""><span class="glyphicon glyphicon-ok-sign"></span> 修改密码</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
 							<li class="divider"></li>
+							<li><a href=""><span class="glyphicon glyphicon-ok-sign"></span> 修改密码</a></li>
 							<li><a href=""><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
-	</header>
-	<div id="main-container" class="container" style="margin-top: 70px;">
+	</div>
+	<div class="jumbotron">
+		<!--<div class="container">
+			<h2>1</h2>
+			<p></p>
+		</div>-->
+	</div>
+	<div id="main-container" class="container">
 		<div class="row">
 			<?php echo $content; ?>
 		</div>

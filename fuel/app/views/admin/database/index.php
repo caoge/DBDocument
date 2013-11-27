@@ -1,30 +1,41 @@
-<div class="col-md-12">
-	<ol class="breadcrumb">
-	  <li><a href="<?php echo Uri::create('admin/server'); ?>">服务器</a></li>
-	  <li><a href="<?php echo Uri::create('admin/database/index/'.$server_info['id']); ?>"><?php echo $server_info['name'] ?></a></li>
-	  <li class="active">数据库</li>
-	</ol>
+<div class="col-md-3">
+	<div class="list-group">
+		<a href="<?php echo Uri::create('admin/database/index'); ?>" class="list-group-item active"><span class="glyphicon glyphicon-book"></span> 数据库</a>
+		<a href="<?php echo Uri::create('admin/database/table'); ?>" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> 表</a>
+		<a href="<?php echo Uri::create('admin/database/field'); ?>" class="list-group-item"><span class="glyphicon glyphicon-tag"></span> 字段</a>
+	</div>
+</div>
+<div class="col-md-9">	
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<span class="panel-title">数据库</span>
-			<a href="javascript:;" class="btn btn-primary btn-xs pull-right" id="" title="刷新"><span class="glyphicon glyphicon-refresh"></span></a>
+			<span class="panel-title">列表</span>
+			<a href="javascript:;" class="btn btn-primary btn-xs pull-right" id="add_database">添加数据库</a>
 		</div>
 		<div class="panel-body">
 			<table class="table table-hover">
 				<thead>
 		          <tr>
 		            <th>#</th>
-		            <th>数据库</th>
-		            <th>字符集</th>
+		            <th>名称</th>
+		            <th>数据库名</th>
+		            <th>地址</th>
+		            <th>端口</th>
+		            <th>操作</th>
 		          </tr>
 		        </thead>
 		        <tbody>
-		        	<?php if($db_list) { ?>
-		          <?php foreach ($db_list as $db) { ?>
+		        	<?php if($database_list) { ?>
+		          <?php foreach ($database_list as $db) { ?>
 		          <tr>
 		          	<td><?php echo $db['id'] ?></td>
-		          	<td><a href="<?php echo Uri::create('admin/database/table/'.$db['id']); ?>"><?php echo $db['db_name'] ?></a></td>
-		          	<td><?php echo $db['charset'] ?></td>
+		          	<td><?php echo $db['name'] ?></td>
+		          	<td><?php echo $db['db_name'] ?></td>
+		          	<td><?php echo $db['db_host'] ?></td>
+		          	<td><?php echo $db['db_port'] ?></td>
+		          	<td>
+		            	<a href="javascript:;" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></a>
+		            	<a href="javascript:;"><span class="glyphicon glyphicon-remove"></span></a>
+		            </td>
 		          </tr>
 		          <?php } ?>
 		          <?php }else { ?>
