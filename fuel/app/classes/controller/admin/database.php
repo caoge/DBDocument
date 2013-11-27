@@ -7,16 +7,18 @@
  */
 class Controller_Admin_Database extends Controller_Admin {
 	/**
-	 * 数据库栏目页
+	 * 服务器下的数据库列表
 	 *
 	 * @access  public
 	 */
-	public function action_index() {
-		$database_list = Model_Database::find('all');
-		$data = array(
-			'database_list' => $database_list
-		);
-		$this->template->title = "数据库";
+	public function action_index($server_id){
+		$server_info = Model_Server::find(array('where' => array('id' => $server_id)));
+		$db_list = Model_Database::find('all', array(
+			'server_id' => $server_id
+		));
+		$data['db_list'] = $db_list;
+		$data['server_info'] = $server_info;
+		$this->template->title = "数据库列表";
         $this->template->content = View::forge('admin/database/index', $data);
 	}
 
