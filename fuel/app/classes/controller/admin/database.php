@@ -13,11 +13,11 @@ class Controller_Admin_Database extends Controller_Admin {
 	 */
 	public function action_index() {
 		$database_list = Model_Database::find('all');
-
-		$this->template->title = "数据库管理";
-        $this->template->content = View::forge('admin/database/index', array());
-		var_dump($database_list);
-		
+		$data = array(
+			'database_list' => $database_list
+		);
+		$this->template->title = "数据库";
+        $this->template->content = View::forge('admin/database/index', $data);
 	}
 
 	/**
@@ -70,13 +70,16 @@ class Controller_Admin_Database extends Controller_Admin {
 	}
 
 	/**
-	 * 数据库表列表
+	 * 数据库表页面
 	 *
 	 * @access  public
 	 * @return  Response
 	 */
-	public function action_table_list() {
-		var_dump(Format::forge(array('a', 'b', 'c'))->to_json());
+	public function action_table() {
+		$data = array();
+		$this->template->title = "数据库";
+        $this->template->content = '';
+		
 	}
 
 	/**
@@ -103,12 +106,12 @@ class Controller_Admin_Database extends Controller_Admin {
 	}
 
 	/**
-	 * 数据库表字段列表
+	 * 数据库表字段页面
 	 *
 	 * @access  public
 	 * @return  Response
 	 */
-	public function action_field_list() {
+	public function action_field() {
 
 	}
 }

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-  	<meta charset="utf-8">
-    <title><?php echo $title; ?></title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,22 +22,22 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="<?php echo Uri::base(); ?>">数据库文档<?php echo Config::get('current_version'); ?></a>
+			  <a class="navbar-brand" href="">数据库文档</a>
 			</div>
 			
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active">
-						<a href="database.html">数据库</a>
+					<li>
+						<a href="">数据库</a>
 					</li>
 					<li>
-						<a href="document.html">文档</a>
+						<a href="">文档</a>
 					</li>
 					<li>
-						<a href="log.html">日志</a>
+						<a href="">日志</a>
 					</li>
 					<li>
-						<a href="setting.html">设置</a>
+						<a href="">设置</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -62,31 +60,54 @@
 			<p></p>
 		</div>-->
 	</div>
+	<!-- <div id="main-container" class="container">
+		<div class="row">
+			<block name="side">
+				<div class="col-lg-3">
+					<block name="publish"></block>
+					<ul class="nav nav-pills nav-stacked">
+						cccccccc
+					</ul>
+				</div>
+			</block>
+			<block name="body"></block>
+		</div>
+	</div> -->
+
+	<script type="text/javascript">
+		$(function(){
+			$(window).resize(function(){
+				$("#main-container").css("min-height", $(window).height() - 343);
+			}).resize();
+		})
+	</script>
+
 	<div id="main-container" class="container">
 		<div class="row">
-			<?php echo $content; ?>
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="" class="list-group-item"><span class="glyphicon glyphicon-home"></span> home</a>
+					<a href="" class="list-group-item active"><span class="glyphicon glyphicon-briefcase"></span> database</a>
+					<a href="" class="list-group-item"><span class="glyphicon glyphicon-th-list"></span> table</a>
+					<a href="" class="list-group-item"><span class="glyphicon glyphicon-log-out"></span> field</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span> 个人信息</h3>
+					</div>
+					<div class="panel-body">
+						<div class="col-md-4"><span class="glyphicon glyphicon-user"></span> 用户名：</div>
+						<div class="col-md-4"><span class="glyphicon glyphicon-usd"></span> 余额：</div>
+						<div class="col-md-4"><span class="glyphicon glyphicon-map-marker"></span> 最后登录IP：</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	
-
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">标题</h4>
-	      </div>
-	      <div class="modal-body">
-	        <?php echo $title; ?>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <button type="button" class="btn btn-primary">确定</button>
-	      </div>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
   </body>

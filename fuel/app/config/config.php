@@ -309,5 +309,5 @@ return array(
 		 */
 		// 'language'  => array(),
 	),
-
+	'current_version' => 'V0.1',
 );
