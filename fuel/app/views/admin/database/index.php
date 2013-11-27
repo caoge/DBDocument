@@ -34,6 +34,7 @@
 		          	<td><?php echo $db['db_port'] ?></td>
 		          	<td>
 		            	<a href="javascript:;" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></a>
+		            	<a href="javascript:;"><span class="glyphicon glyphicon-remove"></span></a>
 		            </td>
 		          </tr>
 		          <?php } ?>
@@ -66,7 +67,6 @@
 	</div>
 </div>
 <script type="text/javascript">
-
 $(function(){
 	$('#add_database').click(function(){
 		$('#myModal').modal('show');
