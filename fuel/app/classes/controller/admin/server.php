@@ -6,6 +6,11 @@
  * @extends  Controller
  */
 class Controller_Admin_Server extends Controller_Admin {
+	public function before() {
+		parent::before();
+		// 将所有数据库、表、字段关联存缓存
+		//$this->field
+	}
 	/**
 	 * 服务器页面
 	 *
@@ -18,6 +23,49 @@ class Controller_Admin_Server extends Controller_Admin {
 		$data['server_list'] = $server_list;
 		$this->template->title = "服务器";
         $this->template->content = View::forge('admin/server/index', $data);
+	}
+
+	public function action_database() {var_dump($this->param('table_id'), $this->param('database_id'));exit;
+		$server_info = Model_Server::find(array('where' => array('id' => $server_id)));
+		$db_list = Model_Database::find('all', array(
+			'server_id' => $server_id
+		));
+		$data['db_list'] = $db_list;
+		$data['server_info'] = $server_info;
+		$this->template->title = "数据库";
+        $this->template->content = View::forge('admin/server/database', $data);
+	}
+
+	public function action_table($database_id) {
+		$server_info = Model_Server::find(array('where' => array('id' => $database_id)));
+		$table_list = Model_Table::find('all', array(
+			'database_id' => $database_id
+		));
+		$data['table_list'] = $table_list;
+		$data['server_info'] = $server_info;
+		$this->template->title = "表";
+        $this->template->content = View::forge('admin/server/table', $data);
+	}
+
+	public function action_field($table_id) {
+		$field_list = Model_Field::find('all', array(
+			'table_id' => $table_id
+		));
+		$data['field_list'] = $field_list;
+		//$data['server_info'] = $server_info;
+		$this->template->title = "字段";
+        $this->template->content = View::forge('admin/server/field', $data);
+	}
+
+	/**
+	 * 面包屑
+	 * 
+	 * @param int $id ID 服务器ID|数据库ID|表ID
+	 * @param string $type 当前列表 database|table|field
+	 * @access  public
+	 */
+	private function get_breadcrumb($id, $type = 'database') {
+
 	}
 
 	/**

@@ -1,12 +1,4 @@
-<!-- <div class="col-md-0">
-	<div class="list-group">
-		<a href="<?php echo Uri::create('admin/server'); ?>" class="list-group-item active"><span class="glyphicon glyphicon-book"></span> 服务器</a>
-	</div>
-</div> -->
 <div class="col-md-12">
-	<!-- <ol class="breadcrumb">
-	  <li class="active">服务器</li>
-	</ol> -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<span class="panel-title">服务器列表</span>
@@ -29,7 +21,7 @@
 		          <?php foreach ($server_list as $server) { ?>
 		          <tr>
 		          	<td><?php echo $server['id'] ?></td>
-		          	<td><a href="<?php echo Uri::create('admin/database/index/'.$server['id']); ?>"><?php echo $server['name'] ?></a></td>
+		          	<td><a href="<?php echo Uri::create('admin/server/database/'.$server['id']); ?>"><?php echo $server['name'] ?></a></td>
 		          	<td><?php echo $server['host'] ?></td>
 		          	<td><?php echo $server['port'] ?></td>
 		          	<td><?php echo $server['add_time'] ?></td>
