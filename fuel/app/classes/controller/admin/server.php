@@ -25,10 +25,14 @@ class Controller_Admin_Server extends Controller_Admin {
         $this->template->content = View::forge('admin/server/index', $data);
 	}
 
-	public function action_database() {var_dump($this->param('table_id'), $this->param('database_id'));exit;
-		$server_info = Model_Server::find(array('where' => array('id' => $server_id)));
+	public function action_database() {
+		$server_id = $this->param('server_id');
+		$server_info = Model_Server::find($server_id);
+
 		$db_list = Model_Database::find('all', array(
-			'server_id' => $server_id
+			'where' => array(
+				array('server_id', $server_id)
+			)
 		));
 		$data['db_list'] = $db_list;
 		$data['server_info'] = $server_info;
@@ -36,23 +40,35 @@ class Controller_Admin_Server extends Controller_Admin {
         $this->template->content = View::forge('admin/server/database', $data);
 	}
 
-	public function action_table($database_id) {
-		$server_info = Model_Server::find(array('where' => array('id' => $database_id)));
+	public function action_table() {
+		$server_id = $this->param('server_id');
+		$database_id = $this->param('database_id');
+
+		$server_info = Model_Server::find($server_id);
+		$database_info = Model_Database::find($database_id);
+
 		$table_list = Model_Table::find('all', array(
-			'database_id' => $database_id
+			'where' => array('database_id' => $database_id)
 		));
 		$data['table_list'] = $table_list;
 		$data['server_info'] = $server_info;
+		$data['database_info'] = $database_info;
 		$this->template->title = "表";
         $this->template->content = View::forge('admin/server/table', $data);
 	}
 
-	public function action_field($table_id) {
+	public function action_field() {
+		$server_id = $this->param('server_id');
+		$database_id = $this->param('database_id');
+		$table_id = $this->param('table_id');
+		$data['server_info'] = Model_Server::find($server_id);
+		$data['database_info'] = Model_Database::find($database_id);
+		$data['table_info'] = Model_Table::find($table_id);
+
 		$field_list = Model_Field::find('all', array(
-			'table_id' => $table_id
+			'where' => array('table_id' => $table_id)
 		));
 		$data['field_list'] = $field_list;
-		//$data['server_info'] = $server_info;
 		$this->template->title = "字段";
         $this->template->content = View::forge('admin/server/field', $data);
 	}
@@ -64,8 +80,10 @@ class Controller_Admin_Server extends Controller_Admin {
 	 * @param string $type 当前列表 database|table|field
 	 * @access  public
 	 */
-	private function get_breadcrumb($id, $type = 'database') {
-
+	private function get_breadcrumb($server_id = 0, $database_id = 0, $table_id = 0) {
+		if (condition) {
+			# code...
+		}
 	}
 
 	/**

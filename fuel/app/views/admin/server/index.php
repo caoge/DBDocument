@@ -21,7 +21,7 @@
 		          <?php foreach ($server_list as $server) { ?>
 		          <tr>
 		          	<td><?php echo $server['id'] ?></td>
-		          	<td><a href="<?php echo Uri::create('admin/server/database/'.$server['id']); ?>"><?php echo $server['name'] ?></a></td>
+		          	<td><a href="<?php echo Uri::create('admin/server-'.$server['id']); ?>"><?php echo $server['name'] ?></a></td>
 		          	<td><?php echo $server['host'] ?></td>
 		          	<td><?php echo $server['port'] ?></td>
 		          	<td><?php echo $server['add_time'] ?></td>
