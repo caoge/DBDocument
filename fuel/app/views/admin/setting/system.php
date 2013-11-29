@@ -10,7 +10,15 @@
 			<span class="panel-title">系统设置</span>
 		</div>
 		<div class="panel-body">
-
+			<div class="input-group">
+			  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+			  <input type="text" class="form-control" placeholder="用户名">
+			</div>
+			<br>
+			<div class="input-group">
+			  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+			  <input type="text" class="form-control" placeholder="邮箱">
+			</div>
 		</div>
 	</div>
 </div>
