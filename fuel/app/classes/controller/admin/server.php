@@ -8,8 +8,7 @@
 class Controller_Admin_Server extends Controller_Admin {
 	public function before() {
 		parent::before();
-		// 将所有数据库、表、字段关联存缓存
-		//$this->field
+		$this->template->nav = 'server';
 	}
 	/**
 	 * 服务器页面

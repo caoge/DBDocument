@@ -32,16 +32,16 @@
 			
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active">
+					<li <?php if($nav == 'server') echo 'class="active"'; ?>>
 						<a href="<?php echo Uri::create('admin/server'); ?>">服务器</a>
 					</li>
-					<li>
+					<li <?php if($nav == 'document') echo 'class="active"'; ?>>
 						<a href="<?php echo Uri::create('admin/document'); ?>">文档</a>
 					</li>
-					<li>
+					<li <?php if($nav == 'log') echo 'class="active"'; ?>>
 						<a href="<?php echo Uri::create('admin/log'); ?>">日志</a>
 					</li>
-					<li>
+					<li <?php if($nav == 'setting') echo 'class="active"'; ?>>
 						<a href="<?php echo Uri::create('admin/setting'); ?>">设置</a>
 					</li>
 				</ul>
