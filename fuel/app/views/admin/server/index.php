@@ -64,6 +64,8 @@
 $(function(){
 	$('#add_database').click(function(){
 		$('#myModal').modal('show');
+		$('.modal-body').html('dd');
+		DBDdialog.show();
 	});
 });
 </script>
