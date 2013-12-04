@@ -4,13 +4,16 @@ var DBDcommon = {
 }
 // 弹出框
 var DBDdialog = {
-	show: function(){
-		alert(1);
+	defaults: {
+		title: '标题',
+		okVal: '确定',
+		cancelVal: '关闭',
+		ok: null,
+		content: ''
 	},
-	close: function(callback){
-
-	},
-	ok: function(callback){
-
+	options: {},
+	show: function(options){
+		this.options = $.extend({}, this.defaults, options);
+		console.log(this.options);
 	}
 }

@@ -5,7 +5,9 @@
     <title><?php echo $title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css"> -->
+	<?php echo Asset::css(array('bootstrap.min.css')); ?>
+	<link rel="stylesheet" href="<?php echo Asset::get_file('artDialog-5.0.4/skins/black.css', 'js'); ?>">
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -64,27 +66,9 @@
 		</div>
 	</div>
 
-	
-
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">标题</h4>
-	      </div>
-	      <div class="modal-body">
-	        
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <button type="button" class="btn btn-primary">确定</button>
-	      </div>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <!--<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>-->
+    <?php echo Asset::js(array('bootstrap.min.js', 'artDialog-5.0.4/jquery.artDialog.min.js', 'artDialog-5.0.4/artDialog.plugins.min.js', 'common.js')); ?>
+
   </body>
 </html>

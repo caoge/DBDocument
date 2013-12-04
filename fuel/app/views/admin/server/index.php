@@ -2,7 +2,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<span class="panel-title">服务器列表</span>
-			<a href="javascript:;" class="btn btn-primary btn-xs pull-right" id="add_database">添加服务器</a>
+			<a href="javascript:;" class="btn btn-primary btn-xs pull-right" id="add_server">添加服务器</a>
 		</div>
 		<div class="panel-body">
 			<table class="table table-hover">
@@ -62,10 +62,22 @@
 </div>
 <script type="text/javascript">
 $(function(){
-	$('#add_database').click(function(){
-		$('#myModal').modal('show');
-		$('.modal-body').html('dd');
-		DBDdialog.show();
+	
+	$('#add_server').click(function(){
+		$.dialog({
+			id: 'add_server',
+			title: '添加服务器',
+			lock: true,
+			ok: function(){
+
+			},
+			okValue: '确定',
+			cancel: true,
+			cancelValue: '关闭'
+		});
+		$.post('http://localhost/DBDocument/public/admin/server/add', function(data){
+			$.dialog.get('add_server').content(data);
+		});
 	});
 });
 </script>

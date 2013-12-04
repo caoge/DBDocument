@@ -80,9 +80,16 @@ class Controller_Admin_Server extends Controller_Admin {
 	 * @access  public
 	 */
 	private function get_breadcrumb($server_id = 0, $database_id = 0, $table_id = 0) {
-		if (condition) {
-			# code...
-		}
+		return 2345;
+	}
+
+	/**
+	 * 添加服务器页面
+	 *
+	 * @access  public
+	 */
+	public function action_add() {
+		return Response::forge(View::forge('admin/server/add'));
 	}
 
 	/**
@@ -90,7 +97,7 @@ class Controller_Admin_Server extends Controller_Admin {
 	 *
 	 * @access  public
 	 */
-	public function action_add() {
+	public function action_insert() {
 		$name = Input::post('name', '默认数据库');
 		
 		$props = array(
